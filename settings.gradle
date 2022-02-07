@@ -1,0 +1,2 @@
+rootProject.name = "Vrich"
+include ':app'
