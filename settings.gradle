@@ -1,2 +1,3 @@
 rootProject.name = "Vrich"
 include ':app'
+include ':basicLib'
