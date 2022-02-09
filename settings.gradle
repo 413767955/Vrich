@@ -1,3 +1,8 @@
 rootProject.name = "Vrich"
 include ':app'
-include ':basicLib'
+include ':library-aop'
+include ':library-network'
+include ':library-db'
+include ':library-common'
+include ':library-base'
+include ':library-widget'
