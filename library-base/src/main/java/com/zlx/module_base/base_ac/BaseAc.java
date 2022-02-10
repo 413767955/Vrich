@@ -25,7 +25,6 @@ import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.zlx.module_base.R;
-import com.zlx.module_base.base_manage.ActivityUtil;
 import com.zlx.module_base.base_util.DoubleClickExitDetector;
 import com.zlx.module_base.base_util.InputTools;
 import com.zlx.module_base.base_util.LanguageUtil;
@@ -68,6 +67,7 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
         initImmersionBar();
         initEvents();
         initViews();
+        initData();
         doubleClickExitDetector =
                 new DoubleClickExitDetector(this, "再按一次退出", 2000);
 
@@ -306,6 +306,9 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
     @Override
     public void initViews() {
 
+    }
+
+    protected void initData() {
     }
 
     protected  int getLayoutId(){

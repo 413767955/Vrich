@@ -48,6 +48,7 @@ public abstract class BaseFg extends Fragment {
         unbinder = ButterKnife.bind(this, view);
         initImmersionBar();
         initViews();
+        initData();
         return view;
     }
 
@@ -58,6 +59,10 @@ public abstract class BaseFg extends Fragment {
 
     protected void initViews() {
     }
+
+    protected void initData() {
+    }
+
 
     protected void initImmersionBar() {
         if (immersionBar()) {

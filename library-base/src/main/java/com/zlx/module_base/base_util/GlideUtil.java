@@ -61,7 +61,7 @@ public class GlideUtil {
     /**
      * 加载圆角图片
      */
-    public void loadRoundImage(ImageView iv, String url, int round) {
+    public static void loadRoundImage(ImageView iv, String url, int round) {
         Glide.with(iv.getContext())
                 .load(url)
                 .transform(new CenterCrop(), new RoundedCorners(round))

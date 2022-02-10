@@ -51,6 +51,15 @@ dependencies {
 
     //安卓工具类库https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md
     implementation 'com.blankj:utilcodex:1.31.0'
+
+    //lombok依赖
+    compileOnly 'org.projectlombok:lombok:1.18.6'
+    annotationProcessor 'org.projectlombok:lombok:1.18.6'
+
+    //首页轮播Banner框架
+    implementation 'com.youth.banner:banner:1.4.10'
+    implementation 'com.github.LinweiJ:ViewPagerIndicator:0.2.0'
+
 }
 repositories {
     mavenCentral()

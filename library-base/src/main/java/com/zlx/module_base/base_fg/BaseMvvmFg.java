@@ -38,9 +38,13 @@ public abstract class BaseMvvmFg<V extends ViewDataBinding, VM extends BaseViewM
         initViewDataBinding();
         getLifecycle().addObserver(viewModel);
         initViews();
+        initData();
     }
 
     protected void initViews() {
+    }
+
+    protected void initData() {
     }
 
     @Override

@@ -1,24 +1,15 @@
 package com.zlx.module_base.module;
 
 import android.app.Application;
-import android.os.Handler;
-import android.os.Looper;
-import android.view.View;
-import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.core.Convertor;
 import com.kingja.loadsir.core.LoadSir;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
-import com.squareup.leakcanary.LeakCanary;
 import com.tencent.mmkv.MMKV;
 import com.zlx.library_db.manager.DbUtil;
 import com.zlx.module_base.BaseApplication;
-import com.zlx.module_base.base_util.LogUtils;
-import com.zlx.module_base.base_util.NeverCrashHelper;
 import com.zlx.module_base.loadsir.EmptyCallback;
 import com.zlx.module_base.loadsir.ErrorCallback;
 import com.zlx.module_base.loadsir.LoadingCallback;
@@ -48,12 +39,12 @@ public class CommonModuleInit implements IModuleInit {
         DbUtil.getInstance().init(application, "wanandroid");
 
 
-        if (LeakCanary.isInAnalyzerProcess(application)) {
+/*        if (LeakCanary.isInAnalyzerProcess(application)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
             return false;
         }
-        LeakCanary.install(application);
+        LeakCanary.install(application);*/
 
 
 //        NeverCrashHelper.init((t, e) -> {

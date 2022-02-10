@@ -21,28 +21,34 @@ import com.zlx.widget.bubblenavigation.listener.BubbleNavigationChangeListener;
 
 public class MainActivity extends BaseMvvmAc<ActivityMainBinding, BaseViewModel> implements BubbleNavigationChangeListener, TabPagerListener {
 
+    @Override
+    protected boolean canSwipeBack() {
+        return false;
+    }
 
     @Override
     public Fragment getFragment(int position) {
         if (position == 0) {
             return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
         } else if (position == 1) {
-            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Project.PAGER_PROJECT).navigation();
-
+//            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Project.PAGER_PROJECT).navigation();
+            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
         } else if (position == 2) {
-            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Square.PAGER_SQUARE).navigation();
+//            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Square.PAGER_SQUARE).navigation();
+                return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
         } else if (position == 3) {
-            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Public.PAGER_PUBLIC).navigation();
-
+//            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Public.PAGER_PUBLIC).navigation();
+            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
         } else if (position == 4) {
-            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Mine.PAGER_MINE).navigation();
+//            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Mine.PAGER_MINE).navigation();
+            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
         }
         return null;
     }
 
     @Override
     public int count() {
-        return 0;
+        return 5;
     }
 
     @Override
