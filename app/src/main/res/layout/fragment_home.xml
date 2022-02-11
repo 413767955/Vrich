@@ -17,24 +17,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="首页"
-                android:textSize="20dp"
-                android:gravity="center"/>
-<!--            <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:text="Vrich"
                 android:gravity="center"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <com.youth.banner.Banner
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="150dp"
                 tools:background="#80ffffff"
                 app:layout_constraintTop_toBottomOf="@id/title"/>
 
@@ -58,7 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:srlPrimaryColor="@android:color/white" />
-            </com.scwang.smart.refresh.layout.SmartRefreshLayout>-->
+            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>

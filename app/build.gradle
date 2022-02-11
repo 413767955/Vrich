@@ -13,6 +13,12 @@ android {
         versionName rootProject.ext.android.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -60,6 +66,7 @@ dependencies {
     implementation 'com.youth.banner:banner:1.4.10'
     implementation 'com.github.LinweiJ:ViewPagerIndicator:0.2.0'
 
+    annotationProcessor rootProject.ext.dependencies.arouterCompiler
 }
 repositories {
     mavenCentral()

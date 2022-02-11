@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *
  */
 @Route(path = RouterFragmentPath.Home.PAGER_HOME)
 public class HomeFragment extends BaseMvvmFg<FragmentHomeBinding, HomeViewModel> {
@@ -38,6 +39,10 @@ public class HomeFragment extends BaseMvvmFg<FragmentHomeBinding, HomeViewModel>
     @Override
     protected int initContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return R.layout.fragment_home;
+    }
+    @Override
+    protected boolean immersionBar() {
+        return true;
     }
 
     @Override
@@ -63,19 +68,20 @@ public class HomeFragment extends BaseMvvmFg<FragmentHomeBinding, HomeViewModel>
     }
 
     private Banner banner;
-    private void initBanner(){
+
+    private void initBanner() {
         banner = binding.banner;
         banner.setAdapter(new BannerImageAdapter<BannerRes>(bannerList) {
             @Override
             public void onBindView(BannerImageHolder holder, BannerRes data, int position, int size) {
-                GlideUtil.loadRoundImage(holder.imageView,data.getImagePath(),10);
+                GlideUtil.loadRoundImage(holder.imageView, data.getImagePath(), 10);
             }
         })
                 .addBannerLifecycleObserver(this)//添加生命周期观察者
                 .setIndicator(new CircleIndicator(getContext()));
         banner.setBannerGalleryEffect(20, 10);
         banner.setOnBannerListener((data, position) -> {
-            ToastUtils.showShort(position+"");
+            ToastUtils.showShort(position + "");
         });
     }
 

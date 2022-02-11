@@ -201,12 +201,14 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
                     .statusBarDarkFont(true)
                     .transparentBar()
                     .keyboardEnable(true)
+                    .fitsSystemWindows(true)
                     .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
                     .init();
         } else {
             ImmersionBar.with(this)
                     .fullScreen(true)
                     .keyboardEnable(true)
+                    .fitsSystemWindows(true)
                     .hideBar(BarHide.FLAG_HIDE_BAR)
                     .init();
         }

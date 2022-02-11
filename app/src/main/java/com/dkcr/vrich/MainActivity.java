@@ -8,17 +8,17 @@ import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.blankj.utilcode.util.ToastUtils;
 import com.dkcr.vrich.base.adapter.VpAdapterMain;
 import com.dkcr.vrich.databinding.ActivityMainBinding;
 import com.dkcr.vrich.impl.TabPagerListener;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.zlx.module_base.base_ac.BaseMvvmAc;
+import com.zlx.module_base.constant.RouterActivityPath;
 import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_base.viewmodel.BaseViewModel;
 import com.zlx.widget.bubblenavigation.listener.BubbleNavigationChangeListener;
-
+@Route(path = RouterActivityPath.Main.PAGER_MAIN)
 public class MainActivity extends BaseMvvmAc<ActivityMainBinding, BaseViewModel> implements BubbleNavigationChangeListener, TabPagerListener {
 
     @Override
@@ -31,6 +31,9 @@ public class MainActivity extends BaseMvvmAc<ActivityMainBinding, BaseViewModel>
         if (position == 0) {
             return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
         } else if (position == 1) {
+//            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Mine.PAGER_MINE).navigation();
+            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Mine.PAGER_MINE).navigation();
+        }/*else if (position == 1) {
 //            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Project.PAGER_PROJECT).navigation();
             return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
         } else if (position == 2) {
@@ -42,13 +45,13 @@ public class MainActivity extends BaseMvvmAc<ActivityMainBinding, BaseViewModel>
         } else if (position == 4) {
 //            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Mine.PAGER_MINE).navigation();
             return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
-        }
+        }*/
         return null;
     }
 
     @Override
     public int count() {
-        return 5;
+        return 2;
     }
 
     @Override
@@ -58,7 +61,7 @@ public class MainActivity extends BaseMvvmAc<ActivityMainBinding, BaseViewModel>
 
     @Override
     protected int initVariableId() {
-        return 0;
+        return BR.viewmodel;
     }
 
     @Override
@@ -85,16 +88,16 @@ public class MainActivity extends BaseMvvmAc<ActivityMainBinding, BaseViewModel>
 
         binding.bottomNavigationViewLinear.setBadgeValue(0, null);
         binding.bottomNavigationViewLinear.setBadgeValue(1, null); //invisible badge
-        binding.bottomNavigationViewLinear.setBadgeValue(2, null);
-        binding.bottomNavigationViewLinear.setBadgeValue(3, null);
-        binding.bottomNavigationViewLinear.setBadgeValue(4, null); //empty badge
+//        binding.bottomNavigationViewLinear.setBadgeValue(2, null);
+//        binding.bottomNavigationViewLinear.setBadgeValue(3, null);
+//        binding.bottomNavigationViewLinear.setBadgeValue(4, null); //empty badge
         binding.bottomNavigationViewLinear.setNavigationChangeListener(this);
     }
 
     private void initTab() {
         VpAdapterMain adapterMain = new VpAdapterMain(getSupportFragmentManager());
         adapterMain.setListener(this);
-        binding.viewPager.setOffscreenPageLimit(5);
+        binding.viewPager.setOffscreenPageLimit(2);
         binding.viewPager.setScrollable(false);
         binding.viewPager.setAdapter(adapterMain);
     }

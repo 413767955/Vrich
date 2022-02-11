@@ -70,6 +70,7 @@ public abstract class BaseFg extends Fragment {
                     .titleBar(R.id.statusBarView,false)
                     .statusBarDarkFont(true)
                     .keyboardEnable(true)
+                    .fitsSystemWindows(true)
                     .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
                     .init();
         }

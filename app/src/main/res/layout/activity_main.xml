@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-
         <com.zlx.widget.viewpager.NoScrollViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
@@ -40,7 +39,7 @@
                 app:bt_shape="@drawable/transition_background_drawable_home"
                 app:bt_title="@string/tab1" />
 
-            <com.zlx.widget.bubblenavigation.BubbleToggleView
+ <!--           <com.zlx.widget.bubblenavigation.BubbleToggleView
                 android:id="@+id/l_item_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,7 +67,7 @@
                 app:bt_colorInactive="@color/main_tab4_inactive"
                 app:bt_icon="@mipmap/ic_tab4"
                 app:bt_shape="@drawable/transition_background_drawable_list"
-                app:bt_title="@string/tab4" />
+                app:bt_title="@string/tab4" />-->
 
             <com.zlx.widget.bubblenavigation.BubbleToggleView
                 android:id="@+id/l_item_profile"
