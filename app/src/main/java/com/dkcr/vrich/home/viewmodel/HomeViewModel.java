@@ -43,4 +43,17 @@ public class HomeViewModel extends BaseViewModel<HomeRepository> {
             }
         });
     }
+
+    public String[] viewFlipperDatas(){
+        String datas[] = {"滚动广告数据000001"
+                ,"滚动广告数据000002"
+                ,"滚动广告数据000003"
+                ,"滚动广告数据000004"
+                ,"滚动广告数据000005"
+                ,"滚动广告数据000006"
+                ,"滚动广告数据000007"
+                ,"滚动广告数据000008"
+                ,"滚动广告数据000009"};
+        return datas;
+    }
 }

@@ -2,13 +2,18 @@ package com.dkcr.vrich.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.bumptech.glide.Glide;
 import com.dkcr.vrich.BR;
 import com.dkcr.vrich.R;
 import com.dkcr.vrich.databinding.FragmentHomeBinding;
@@ -53,8 +58,8 @@ public class HomeFragment extends BaseMvvmFg<FragmentHomeBinding, HomeViewModel>
     @Override
     protected void initViews() {
         super.initViews();
-        LogUtils.e("HomeFragment");
         initBanner();
+        initViewFlipper();
     }
 
     @Override
@@ -68,7 +73,6 @@ public class HomeFragment extends BaseMvvmFg<FragmentHomeBinding, HomeViewModel>
     }
 
     private Banner banner;
-
     private void initBanner() {
         banner = binding.banner;
         banner.setAdapter(new BannerImageAdapter<BannerRes>(bannerList) {
@@ -79,11 +83,23 @@ public class HomeFragment extends BaseMvvmFg<FragmentHomeBinding, HomeViewModel>
         })
                 .addBannerLifecycleObserver(this)//添加生命周期观察者
                 .setIndicator(new CircleIndicator(getContext()));
-        banner.setBannerGalleryEffect(20, 10);
+        banner.setBannerGalleryEffect(10, 10);
         banner.setOnBannerListener((data, position) -> {
             ToastUtils.showShort(position + "");
         });
     }
 
+    private void initViewFlipper(){
+        String[] datas = viewModel.viewFlipperDatas();
+
+        for (int i = 0; i < datas.length; i++) { //一次遍历两条数据
+            View v = View.inflate(getContext(),R.layout.item_home_view_flipper,null);
+            ImageView iv = v.findViewById(R.id.iv);
+            TextView tv = v.findViewById(R.id.title);
+            tv.setText(datas[i]);
+            binding.viewFlipper.addView(v); //把需要滚动布局添加到ViewFlipper
+        }
+        binding.viewFlipper.startFlipping(); //开始滚动
+    }
 
 }
