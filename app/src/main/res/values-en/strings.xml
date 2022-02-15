@@ -7,4 +7,7 @@
     <string name="tab3">Square</string>
 
     <string name="tag_key_translation_z">translation_z</string>
+    <!--home-->
+    <string name="timeDue">timeDue</string>
+
 </resources>

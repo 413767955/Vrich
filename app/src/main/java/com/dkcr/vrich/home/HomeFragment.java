@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.LogUtils;
@@ -17,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.dkcr.vrich.BR;
 import com.dkcr.vrich.R;
 import com.dkcr.vrich.databinding.FragmentHomeBinding;
+import com.dkcr.vrich.home.adater.HomeFinanceAdapter;
 import com.dkcr.vrich.home.bean.BannerBean;
 import com.dkcr.vrich.home.viewmodel.HomeViewModel;
 import com.youth.banner.Banner;
@@ -100,6 +103,12 @@ public class HomeFragment extends BaseMvvmFg<FragmentHomeBinding, HomeViewModel>
             binding.viewFlipper.addView(v); //把需要滚动布局添加到ViewFlipper
         }
         binding.viewFlipper.startFlipping(); //开始滚动
+    }
+    private HomeFinanceAdapter financeAdapter;
+    private void initRV(){
+        binding.financeRv.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL,false));
+        financeAdapter = new HomeFinanceAdapter(new ArrayList<>());
+        //financeAdapter
     }
 
 }
