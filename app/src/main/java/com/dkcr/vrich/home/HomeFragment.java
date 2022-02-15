@@ -21,6 +21,7 @@ import com.dkcr.vrich.R;
 import com.dkcr.vrich.databinding.FragmentHomeBinding;
 import com.dkcr.vrich.home.adater.HomeFinanceAdapter;
 import com.dkcr.vrich.home.bean.BannerBean;
+import com.dkcr.vrich.home.bean.FinanceListBean;
 import com.dkcr.vrich.home.viewmodel.HomeViewModel;
 import com.youth.banner.Banner;
 import com.youth.banner.adapter.BannerImageAdapter;
@@ -33,6 +34,7 @@ import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.widget.shadow.GlideRoundUtils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -63,6 +65,7 @@ public class HomeFragment extends BaseMvvmFg<FragmentHomeBinding, HomeViewModel>
         super.initViews();
         initBanner();
         initViewFlipper();
+        initFinanceRV();
     }
 
     @Override
@@ -105,10 +108,11 @@ public class HomeFragment extends BaseMvvmFg<FragmentHomeBinding, HomeViewModel>
         binding.viewFlipper.startFlipping(); //开始滚动
     }
     private HomeFinanceAdapter financeAdapter;
-    private void initRV(){
+    private void initFinanceRV(){
         binding.financeRv.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL,false));
         financeAdapter = new HomeFinanceAdapter(new ArrayList<>());
-        //financeAdapter
+        financeAdapter.addData(viewModel.getFinanceList());
+        binding.financeRv.setAdapter(financeAdapter);
     }
 
 }
