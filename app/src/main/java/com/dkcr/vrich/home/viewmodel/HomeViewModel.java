@@ -60,7 +60,7 @@ public class HomeViewModel extends BaseViewModel<HomeRepository> {
         return datas;
     }
 
-    public void getFinanceList(){
+    public List getFinanceList(){
         List<FinanceListBean> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             FinanceListBean bean = new FinanceListBean();
@@ -69,7 +69,8 @@ public class HomeViewModel extends BaseViewModel<HomeRepository> {
             bean.setTimeDue(i+"");
             list.add(bean);
         }
-        financeLiveData.postValue(list);
+        //financeLiveData.postValue(list);
+        return list;
     }
 
 }
