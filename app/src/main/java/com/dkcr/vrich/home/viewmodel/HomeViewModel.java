@@ -72,5 +72,16 @@ public class HomeViewModel extends BaseViewModel<HomeRepository> {
         //financeLiveData.postValue(list);
         return list;
     }
-
+    public List getUpcoming(){
+        List<FinanceListBean> list = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            FinanceListBean bean = new FinanceListBean();
+            bean.setName("名称"+i);
+            bean.setProgress(30);
+            bean.setTimeDue(i+"");
+            list.add(bean);
+        }
+        //financeLiveData.postValue(list);
+        return list;
+    }
 }

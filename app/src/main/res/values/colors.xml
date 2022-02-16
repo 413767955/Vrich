@@ -7,9 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="app_bg">#CDCDCD</color>
+    <color name="app_bg">#F3F0F0</color>
 
     <color name="viewLineColor">#F5F5F5</color>
     <color name="color_F4DEDE">#F4E1DE</color>
     <color name="color_7E2D21">#7E2D21</color>
+    <color name="color_F6DACD">#F6DACD</color>
+    <color name="color_F3673A">#F3673A</color>
+    <color name="color_">#E44B62</color>
 </resources>

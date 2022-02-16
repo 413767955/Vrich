@@ -20,6 +20,7 @@ import com.dkcr.vrich.BR;
 import com.dkcr.vrich.R;
 import com.dkcr.vrich.databinding.FragmentHomeBinding;
 import com.dkcr.vrich.home.adater.HomeFinanceAdapter;
+import com.dkcr.vrich.home.adater.UpcomingAdapter;
 import com.dkcr.vrich.home.bean.BannerBean;
 import com.dkcr.vrich.home.bean.FinanceListBean;
 import com.dkcr.vrich.home.viewmodel.HomeViewModel;
@@ -65,6 +66,8 @@ public class HomeFragment extends BaseMvvmFg<FragmentHomeBinding, HomeViewModel>
         initBanner();
         initViewFlipper();
         initFinanceRV();
+        initUpcomingRV();
+        initHotRV();
     }
 
     @Override
@@ -114,13 +117,21 @@ public class HomeFragment extends BaseMvvmFg<FragmentHomeBinding, HomeViewModel>
         financeAdapter.addData(list);
         binding.financeRv.setAdapter(financeAdapter);
     }
-
+    private UpcomingAdapter upcomingAdapter;
     private void initUpcomingRV(){
         binding.upcomingRV.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL,false));
-        financeAdapter = new HomeFinanceAdapter(new ArrayList<>());
-        List<FinanceListBean> list = viewModel.getFinanceList();
-        financeAdapter.addData(list);
-        binding.upcomingRV.setAdapter(financeAdapter);
+        upcomingAdapter = new UpcomingAdapter(new ArrayList<>());
+        List<FinanceListBean> list = viewModel.getUpcoming();
+        upcomingAdapter.addData(list);
+        binding.upcomingRV.setAdapter(upcomingAdapter);
+    }
+    private UpcomingAdapter hotAdapter;
+    private void initHotRV(){
+        binding.hotRV.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL,false));
+        hotAdapter = new UpcomingAdapter(new ArrayList<>());
+        List<FinanceListBean> list = viewModel.getUpcoming();
+        hotAdapter.addData(list);
+        binding.hotRV.setAdapter(hotAdapter);
     }
 
 }
