@@ -34,7 +34,6 @@ import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.widget.shadow.GlideRoundUtils;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -111,8 +110,17 @@ public class HomeFragment extends BaseMvvmFg<FragmentHomeBinding, HomeViewModel>
     private void initFinanceRV(){
         binding.financeRv.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL,false));
         financeAdapter = new HomeFinanceAdapter(new ArrayList<>());
-        financeAdapter.addData(viewModel.getFinanceList());
+        List<FinanceListBean> list = viewModel.getFinanceList();
+        financeAdapter.addData(list);
         binding.financeRv.setAdapter(financeAdapter);
+    }
+
+    private void initUpcomingRV(){
+        binding.upcomingRV.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL,false));
+        financeAdapter = new HomeFinanceAdapter(new ArrayList<>());
+        List<FinanceListBean> list = viewModel.getFinanceList();
+        financeAdapter.addData(list);
+        binding.upcomingRV.setAdapter(financeAdapter);
     }
 
 }

@@ -22,13 +22,6 @@ public class HomeFinanceAdapter extends BaseQuickAdapter<FinanceListBean, BaseDa
     public HomeFinanceAdapter(@Nullable List<FinanceListBean> data) {
         super(R.layout.item_home_finance, data);
     }
-/*
-    @Override
-    protected void convert(@NonNull BaseViewHolder holder, FinanceListBean financeListBean) {
-        //holder.setText(R.id.iv_img,financeListBean.getImg());
-        holder.setText(R.id.tv_name,financeListBean.getName());
-        ((ProgressBar)holder.getView(R.id.progress_bar)).setProgress(30);
-    }*/
 
     @Override
     protected void convert(@NonNull BaseDataBindingHolder<ItemHomeFinanceBinding> bindingHolder, FinanceListBean financeListBean) {
